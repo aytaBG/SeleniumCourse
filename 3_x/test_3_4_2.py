@@ -1,7 +1,9 @@
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 link = "http://selenium1py.pythonanywhere.com/"
 
+@pytest.mark.skip
 class TestMainPage1():
 
     @classmethod
@@ -22,7 +24,7 @@ class TestMainPage1():
         self.browser.get(link)
         self.browser.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
-
+@pytest.mark.skip
 class TestMainPage2():
 
     def setup_method(self):

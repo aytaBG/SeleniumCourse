@@ -1,15 +1,9 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pytest
 
-@pytest.fixture(scope='module')
-def browser():
-    browser = webdriver.Chrome()
-    browser.implicitly_wait(5)
-    yield browser
-    browser.quit()
-
 class TestRework:
+
+    @pytest.mark.smoke
     def test_1(self, browser):
 
         browser.get('https://suninjuly.github.io/registration1.html')
@@ -29,6 +23,7 @@ class TestRework:
 
         assert welcome_text == "Congratulations! You have successfully registered!"
 
+    @pytest.mark.smoke
     def test_2(self, browser):
 
         browser.get('https://suninjuly.github.io/registration2.html')
